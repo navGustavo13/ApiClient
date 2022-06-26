@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/*
 final class API {
     let requester: RequesterProtocol
     let parser: ParserProtocol
@@ -32,9 +32,4 @@ protocol ParserProtocol {
 
 class Parser: ParserProtocol {
 }
-
-protocol RouterProtocol {
-}
-
-class Router: RouterProtocol {
-}
+*/
