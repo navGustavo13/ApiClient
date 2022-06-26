@@ -6,13 +6,13 @@
 //
 
 import Foundation
-/*
+
 final class API {
     let requester: RequesterProtocol
     let parser: ParserProtocol
     let router: RouterProtocol
 
-    init(requester: RequesterProtocol = Request(),
+    init(requester: RequesterProtocol = Requester(),
          parser: ParserProtocol = Parser() ,
          router: RouterProtocol = Router()) {
         self.requester = requester
@@ -20,16 +20,3 @@ final class API {
         self.router = router
     }
 }
-
-protocol RequesterProtocol {
-}
-
-class Request: RequesterProtocol {
-}
-
-protocol ParserProtocol {
-}
-
-class Parser: ParserProtocol {
-}
-*/

@@ -24,16 +24,15 @@ class AppEnvironment {
 }
 
 protocol RouterProtocol {
-    func routeMoviesEndPont(_ endpoint: EndPoint) -> RouterEndPoint
+    func routeMoviesEndpoint(_ endpoint: EndPoint) -> EndPoint
 }
 
-struct RouterEndPoint: EndPoint {
-    let path: String
-    let method: HTTPMethod
-    var parameters: [String: AnyObject]?
-}
-
-class Router {
+class Router: RouterProtocol {
+    struct RouterEndPoint: EndPoint {
+        let path: String
+        let method: HTTPMethod
+        var parameters: [String: AnyObject]?
+    }
     let environment: AppEnvironment
 
     init(environment: AppEnvironment = AppEnvironment()) {
