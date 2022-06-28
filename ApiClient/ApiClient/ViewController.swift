@@ -12,10 +12,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let apiClient = APIClient()
+        let apiClient = ApiMovies(token: Constants.appiKey)
 
-        apiClient.getSlackConversations { result in
-            print("Datamodel \(result) ")
+        apiClient.getMovies(endPoint: MoviesEndPoints.getGenres) { result  in
+            print(result ?? "")
         }
     }
 }

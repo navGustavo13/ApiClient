@@ -14,4 +14,5 @@ struct  Constants {
     static let genrePath  = "/3/genre/movie/list"
     static let genresURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=" + appiKey + "&language=en-US"
     static let moviesURL = "https://api.themoviedb.org/3/movie/popular?api_key=" + appiKey + "&language=en-US&page=1"
+
 }

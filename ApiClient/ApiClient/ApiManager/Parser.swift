@@ -27,12 +27,13 @@ class Parser: ParserProtocol {
 extension Parser {
     func printDecodable(error: Error) {
         guard let error = error as? DecodingError else { return }
-                let message: String
+                var message: String
                 switch error {
                 case .keyNotFound(let key, let context):
                     message = "[Decodable] Key \"\(key)\" not found \nContext: \(context.debugDescription)"
                 case .dataCorrupted(let context):
-                    message = "[Decodable] Data corrupted \n(Context: \(context.debugDescription)) \nCodingKeys: \(context.codingPath)"
+                    message = "[Decodable] Data corrupted \n(Context: "
+                    message += "\(context.debugDescription)) \nCodingKeys: \(context.codingPath)"
                 case .typeMismatch(let type, let context):
                     message = "[Decodable] Type mismatch \"\(type)\" \nContext: \(context.debugDescription)"
                 case .valueNotFound(let type, let context):

@@ -15,25 +15,13 @@ enum HTTPMethod: String {
 protocol EndPoint {
     var path: String { get }
     var method: HTTPMethod { get }
-    var parameters: [String: AnyObject]? { get }
+    var parameters: [String: Any]? { get }
 }
 
 extension EndPoint {
     var path: String { "" }
     var method: HTTPMethod {.GET }
-    var parameters: [String: AnyObject]? { nil }
-}
-
-struct GetMovies: EndPoint {
-    var path: String = ""
-    var method: HTTPMethod = .GET
-    var parameters: [String: AnyObject]?
-}
-
-struct GetGenres: EndPoint {
-    var path: String = ""
-    var method: HTTPMethod = .GET
-    var parameters: [String: AnyObject]?
+    var parameters: [String: Any]? { nil }
 }
 
 enum MoviesEndPoints {
@@ -43,9 +31,9 @@ enum MoviesEndPoints {
     public var endPoint: EndPoint {
         switch self {
         case .getMovies:
-                return GetMovies()
+                 return GetMoviesEndpoint()
         case .getGenres:
-                return GetGenres()
+                return GetGenresEndpoint()
         }
     }
 }

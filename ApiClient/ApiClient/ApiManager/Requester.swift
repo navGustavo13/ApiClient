@@ -37,13 +37,14 @@ class Requester: RequesterProtocol {
     func buildURLRequest(endPoint: EndPoint) -> URLRequest? {
         var urlRequest = URLRequest(url: URL(string: endPoint.path)!)
 
+        urlRequest.httpMethod = endPoint.method.rawValue
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
         if let parameters = endPoint.parameters, !parameters.isEmpty,
-           let postData = (try? JSONSerialization.data(withJSONObject: endPoint.parameters as Any, options: [])) {
+           let postData = (try? JSONSerialization.data(withJSONObject: endPoint.parameters as Any,
+                                                       options: .prettyPrinted)) {
             urlRequest.httpBody = postData
         }
-
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-type")
-
+        urlRequest.timeoutInterval = 20
         return urlRequest
     }
 }

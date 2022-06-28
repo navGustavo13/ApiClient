@@ -31,7 +31,7 @@ class Router: RouterProtocol {
     struct RouterEndPoint: EndPoint {
         let path: String
         let method: HTTPMethod
-        var parameters: [String: AnyObject]?
+        var parameters: [String: Any]?
     }
     let environment: AppEnvironment
 
@@ -47,7 +47,7 @@ class Router: RouterProtocol {
         var url = environment.getUrl(api: api)
         url?.appendPathComponent(endpoint.path)
         return RouterEndPoint(path: url!.absoluteString,
-                                  method: endpoint.method,
-                                  parameters: endpoint.parameters)
+                              method: endpoint.method,
+                              parameters: endpoint.parameters)
     }
 }
